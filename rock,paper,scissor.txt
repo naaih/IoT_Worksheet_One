@@ -1,0 +1,34 @@
+from microbit import *
+import random
+
+# output an image of a scissor
+scissor = Image("90009:"
+              "99090:"
+              "00900:"
+              "99090:"
+              "90009")
+
+# output an image of a rock
+rock = Image( "00000:"
+              "09990:"
+              "09990:"
+              "09990:"
+              "00000")
+
+# output an image of a paper
+paper = Image("99999:"
+              "90009:"
+              "90009:"
+              "90009:"
+              "99999")
+
+# images stored in an array
+game = [rock, paper, scissor]
+
+while True:
+    # once the microbit is shaken. output either rock, paper or scissor
+    if accelerometer.was_gesture('shake'):
+        display.show(random.choice(game))
+        # duration of the image in seconds
+        sleep(3000)
+        display.clear()
